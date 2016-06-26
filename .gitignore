@@ -27,3 +27,9 @@
 *.exe
 *.out
 *.app
+/BinarySearchTree/BinarySearchTree/Debug
+*.filters
+*.suo
+/BinarySearchTree/Debug
+*.db
+*.opendb
