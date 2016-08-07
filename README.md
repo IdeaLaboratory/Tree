@@ -7,4 +7,7 @@ Very first step and Simplest c++ code.
 
 #2
 Implemented Insert method to create new node of a tree.
-Implemented basci Binary Search.
+Implemented basic Binary Search.
+
+#3
+Let's implement fuction to print Inorder Successor
