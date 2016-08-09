@@ -40,6 +40,31 @@ Node* Search(Node* p_root, int p_val)
 		Search((p_root)->right, p_val);
 }
 
+Node* Delete(Node* p_root)
+{
+	if (p_root && !p_root->left && !p_root->right)	//Node do not have child
+		free(p_root);
+	else if (p_root->left && !p_root->right)	//Node have left child
+	{
+		Node* temp = p_root;
+		p_root = p_root->left;
+		free(temp);
+	}
+	else if (!p_root->left && p_root->right)	//Node have right child
+	{
+		Node* temp = p_root;
+		p_root = p_root->right;
+		free(temp);
+	}
+	else  //Node have both left and right child
+	{
+		/*Node* temp = FindMin(p_root->right); //Node* temp = FindMax(p_root->left); 
+		p_root->val = temp->val;
+		Delete(temp);*/
+	}
+	return p_root;
+}
+
 //Inorder traversal
 void GetInorder(Node* p_root)
 {
@@ -61,8 +86,10 @@ int main()
 	InsertNode(&root, 25);
 	InsertNode(&root, 10);
 	InsertNode(&root, 35);
+	root= Delete(root);
+	/*
 	InsertNode(&root, 5);
 
-	GetInorder(root);
+	GetInorder(root);*/
 	//Node *expNode = Search(root, 10);
 }
