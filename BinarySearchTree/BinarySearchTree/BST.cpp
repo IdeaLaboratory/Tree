@@ -39,6 +39,17 @@ Node* Search(Node* p_root, int p_val)
 	else
 		Search((p_root)->right, p_val);
 }
+Node* findMin(Node* p_root)
+{
+	if (!p_root)
+		return NULL;
+	while (p_root->left)
+	{
+		p_root = p_root->left;
+	}
+
+	return p_root;
+}
 
 Node* Delete(Node* p_root)
 {
@@ -58,12 +69,14 @@ Node* Delete(Node* p_root)
 	}
 	else  //Node have both left and right child
 	{
-		/*Node* temp = FindMin(p_root->right); //Node* temp = FindMax(p_root->left); 
+		Node* temp = findMin(p_root->right); //Node* temp = FindMax(p_root->left);
 		p_root->val = temp->val;
-		Delete(temp);*/
+		Delete(temp);
 	}
 	return p_root;
 }
+
+
 
 //Inorder traversal
 void GetInorder(Node* p_root)
@@ -73,8 +86,8 @@ void GetInorder(Node* p_root)
 
 	if (p_root->left != NULL)
 		GetInorder(p_root->left);
-	cout << p_root->val <<endl;
-	if(p_root->right!=NULL)
+	cout << p_root->val << endl;
+	if (p_root->right != NULL)
 		GetInorder(p_root->right);
 }
 
@@ -86,7 +99,7 @@ int main()
 	InsertNode(&root, 25);
 	InsertNode(&root, 10);
 	InsertNode(&root, 35);
-	root= Delete(root);
+	root = Delete(root);
 	/*
 	InsertNode(&root, 5);
 
