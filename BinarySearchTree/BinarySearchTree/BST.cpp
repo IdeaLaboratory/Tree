@@ -51,6 +51,15 @@ Node* findMin(Node* p_root)
 	return p_root;
 }
 
+Node* findMax(Node* p_root)
+{
+	while (p_root->right != NULL)
+	{
+		p_root = p_root->right;
+	}
+	return p_root;
+}
+
 Node* Delete(Node* p_root)
 {
 	if (p_root && !p_root->left && !p_root->right)	//Node do not have child
