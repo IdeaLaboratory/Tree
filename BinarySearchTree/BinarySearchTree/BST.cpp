@@ -76,7 +76,7 @@ Node* Delete(Node* p_root)
 	return p_root;
 }
 
-
+int x = 0;
 
 //Inorder traversal
 void GetInorder(Node* p_root)
@@ -86,7 +86,10 @@ void GetInorder(Node* p_root)
 
 	if (p_root->left != NULL)
 		GetInorder(p_root->left);
-	cout << p_root->val << endl;
+	
+	/*++x;	//print the kth element;
+	if(x==3)	//Assume k = 3*/
+		cout << p_root->val << endl;
 	if (p_root->right != NULL)
 		GetInorder(p_root->right);
 }
@@ -99,10 +102,13 @@ int main()
 	InsertNode(&root, 25);
 	InsertNode(&root, 10);
 	InsertNode(&root, 35);
-	root = Delete(root);
+	InsertNode(&root, 5);
+	InsertNode(&root, 55);
+	//root = Delete(root);
 	/*
 	InsertNode(&root, 5);
 
 	GetInorder(root);*/
 	//Node *expNode = Search(root, 10);
+	GetInorder(root);
 }
